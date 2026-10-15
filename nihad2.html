@@ -1,0 +1,521 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#0b1228">
+<title>78 — para mi carajita 💖</title>
+
+<style>
+@import url('');
+
+:root {
+  --navy: #381e50;
+  --navy2: #0b364b;
+  --wine: #762842;
+  --rose: #a83d61;
+  --cream: #fff6f8;
+  --muted: #c7bfd0;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--navy);
+  color: var(--cream);
+  font-family: 'DM Sans', sans-serif;
+}
+button, textarea, input { font: inherit; }
+button { cursor: pointer; }
+button:focus-visible, textarea:focus-visible {
+  outline: 2px solid var(--rose);
+  outline-offset: 4px;
+}
+[hidden] { display: none !important; }
+
+.ambient {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse at 15% 15%, #26355d66, transparent 45%),
+    radial-gradient(ellipse at 85% 80%, #76284244, transparent 42%);
+}
+nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 7%;
+  border-bottom: 1px solid #ffffff12;
+}
+.brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 25px;
+  letter-spacing: 2px;
+}
+.brand span { color: var(--rose); }
+.nav-note {
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 2px;
+}
+main { min-height: 70vh; }
+.hero {
+  min-height: 83vh;
+  padding: 90px 20px 75px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+.eyebrow {
+  color: var(--rose);
+  font-size: 10px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+}
+h1, h2, h3, .serif {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 500;
+}
+h1 {
+  font-size: clamp(48px, 8vw, 88px);
+  line-height: .98;
+  margin: 24px 0;
+  max-width: 850px;
+}
+h1 em { color: var(--rose); font-weight: 400; }
+.lead {
+  max-width: 480px;
+  color: var(--muted);
+  font-size: 15px;
+  line-height: 1.9;
+}
+.number {
+  font-family: 'Cormorant Garamond', serif;
+  color: var(--rose);
+  font-size: 76px;
+  line-height: 1.1;
+  margin: 20px 0 4px;
+  text-shadow: 0 0 45px #efb9ce33;
+}
+.number-note {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: #e4cfdb;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 30px;
+}
+.btn {
+  border: 1px solid #ffffff24;
+  background: #ffffff08;
+  color: var(--cream);
+  border-radius: 5px;
+  padding: 14px 22px;
+  transition: .25s;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  border-color: var(--rose);
+}
+.btn.primary {
+  background: var(--wine);
+  border-color: var(--wine);
+}
+.btn.primary:hover { background: #913752; }
+.btn.light {
+  background: var(--cream);
+  color: var(--navy);
+}
+.section {
+  max-width: 1000px;
+  margin: auto;
+  padding: 75px 24px;
+}
+.section-title {
+  font-size: clamp(34px, 5vw, 52px);
+  margin: 12px 0;
+}
+.center { text-align: center; }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+  margin-top: 35px;
+}
+.card {
+  border: 1px solid #ffffff14;
+  background: linear-gradient(140deg, #ffffff0b, #ffffff03);
+  padding: 28px;
+  border-radius: 12px;
+  text-align: left;
+}
+.card .symbol {
+  font-size: 29px;
+  color: var(--rose);
+}
+.card h3 { font-size: 29px; margin: 16px 0 8px; }
+.card p { color: var(--muted); font-size: 14px; line-height: 1.9; }
+.quote {
+  text-align: center;
+  max-width: 680px;
+  margin: 65px auto;
+  padding: 30px 15px;
+  color: var(--rose);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(27px, 5vw, 39px);
+  line-height: 1.4;
+}
+.letter-wrap {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 24px;
+}
+.letter-paper {
+  background: #f8f0f1;
+  color: #332434;
+  border-radius: 5px;
+  padding: clamp(25px, 6vw, 55px);
+  box-shadow: 0 20px 80px #0003;
+}
+.letter-paper h2 {
+  font-size: 39px;
+  color: #702742;
+  margin-top: 0;
+}
+.letter-paper p {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-size: 21px;
+  line-height: 1.9;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+.letter-paper .signature {
+  text-align: right;
+  color: #702742;
+  font-size: 27px;
+}
+.editor {
+  width: 100%;
+  min-height: 310px;
+  padding: 18px;
+  color: var(--cream);
+  background: #101a32;
+  border: 1px solid #ffffff26;
+  border-radius: 8px;
+  line-height: 1.9;
+  resize: vertical;
+}
+.editor-label {
+  display: block;
+  margin: 22px 0 10px;
+  color: var(--rose);
+  font-size: 13px;
+}
+.status {
+  min-height: 24px;
+  color: var(--rose);
+  font-size: 13px;
+}
+footer {
+  text-align: center;
+  padding: 35px 20px;
+  border-top: 1px solid #ffffff12;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 2;
+}
+@media (max-width: 560px) {
+  nav { padding: 18px 20px; }
+  .nav-note { font-size: 9px; letter-spacing: 1px; }
+  .cards { grid-template-columns: 1fr; }
+  .hero { min-height: 78vh; padding-top: 65px; }
+  .section { padding: 55px 20px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}
+</style>
+</head>
+
+<body>
+<div class="ambient"></div>
+
+<nav>
+  <div class="brand">78 <span>💖∞</span> Nihad</div>
+  <div class="nav-note">lo nuestro</div>
+</nav>
+
+<main>
+  <!-- PORTADA -->
+  <section id="home" class="hero">
+    <div class="eyebrow">la mujer de mis sueños</div>
+    <h1>para mi <em>amor.</em></h1>
+    <p class="lead editable" data-id="intro">
+      si mi madre te ve, te diria que eres la mejor mujer del mundo
+      nunca dudes de eso, eres la mejor del universo.
+    </p>
+    <div class="number">78</div>
+    <div class="number-note">TU Y YO</div>
+
+    <div class="actions">
+      <button class="btn primary" onclick="entrar()">
+        entra a lo nuestroooo ♡
+      </button>
+    </div>
+    <p class="lead" style="font-size:12px;margin-top:28px">
+      hecho para ti con todo mi amor
+    </p>
+  </section>
+
+  <!-- UNIVERSO -->
+  <section id="universe" hidden>
+    <div class="section">
+      <div class="center">
+        <div class="eyebrow">solo tú y yo</div>
+        <h2 class="section-title">lo que nos hace nosotros</h2>
+        <p class="lead" style="margin: auto">
+          nos cuidamos, nos queremos, nos amamos,
+          nos ayudamos siempre y estamos juntos.
+        </p>
+      </div>
+
+      <div class="cards">
+        <article class="card">
+          <div class="symbol">∞</div>
+          <h3>el 78</h3>
+          <p class="editable" data-id="numberText">
+            nuestros numeros favoritos, estan igual de unidos 
+            que nosotros en nuestra relacion y amo eso.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="symbol">💖</div>
+          <h3>azul y rojo vino</h3>
+          <p class="editable" data-id="colorsText">
+            son nuestros dos colores favoritos
+            cuando veo algo parecido al vino
+            me recuerda inmediatamente a un futuro contigo.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="symbol">⌂</div>
+          <h3>nuestra futura casa</h3>
+          <p class="editable" data-id="homeText">
+            no quiero solo que sea una casa epoptiana,
+            quiero que apenas llegue a casa verte con 
+            nuestros niños.
+          </p>
+        </article>
+
+        <article class="card">
+          <div class="symbol">💖∞</div>
+          <h3>nuestros cuatro peques</h3>
+          <p class="editable" data-id="kidsText">
+            me dijiste de tener 4 hijosh, 2 niños y 2 niñas
+            y yo los amare demasiado cuando los tengamos.
+          </p>
+        </article>
+      </div>
+
+      <div class="quote editable" data-id="quote">
+        “quiero todo contigo en esta vida.”
+      </div>
+
+      <div class="center">
+        <div class="eyebrow">algo mas para ti</div>
+        <h2 class="section-title">igual que mis textos de cada dia...</h2>
+        <p class="lead" style="margin:auto">
+          estas palabras son solo para ti mi amor (no pa la "mia")
+        </p>
+        <div class="actions">
+          <button class="btn primary" onclick="abrirCarta()">
+            💖 clicka aqui pa ver una cartitaaa.
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CARTA -->
+  <section id="letter" hidden>
+    <div class="section">
+      <div class="center">
+        <div class="eyebrow">Tatimu</div>
+        <h2 class="section-title">para mi niña hermosha</h2>
+        <p class="lead" style="margin:auto">
+         bebe tomate el tiempo que necesites pa leer mi amorch
+        </p>
+      </div>
+
+      <div class="letter-wrap">
+        <div class="letter-paper">
+          <h2>mi niña preciosa,</h2>
+          <p id="letterPreview"></p>
+          <p class="signature" id="signaturePreview">
+            con toda mi alma, 💖
+          </p>
+        </div>
+          <p id="status" class="status" aria-live="polite"></p>
+          <p style="color:var(--muted);font-size:12px;line-height:1.8">
+            Te puedeshhh guardar la carta babyyyy.
+          </p>
+          <button class="btn" onclick="descargarCarta()">
+            Descargar mi carta (.txt)
+          </button>
+        </div>
+        <div id="letterActions" class="actions">
+          <button class="btn" onclick="volver()">
+            Volver al inicioooooooo
+          </button>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div style="font-family:'Cormorant Garamond';font-size:24px">
+    78 <span style="color:var(--rose)">♡</span> Nihad
+  </div>
+  <div class="editable" data-id="footer">
+    hecho con todo mi corazon
+  </div>
+  <div>siempre juntos hasta en lo malo</div>
+</footer>
+
+<script>
+const $ = id => document.getElementById(id);
+
+const defaultLetter =
+`amore, no sabes lo mucho que te amo en este universo, eres la persona que mas me ha hecho feliz en esta vida
+ te diria demasiado pero estoy haciendo esto en clase, no sales de mi cabeza nunca,
+ eres la mejor del mundo, siempre te recordare todos los dias lo mucho que te amo con el alma
+  te adoro con todo mi corazon hasta el final mi niña, siempre, te recuerdo que te amo todos los dias y 
+  que si tienes un mal dia te puedes desahogar conmigo simepre que lo necesites, no olvidare nunca 
+  lo que hiciste por mi el dia que peor me fue, te amo mi reina hermosa, ojala y rezo que duremos toda la eternidad,
+   con todo mi amor y cariño, tu bichito. 💖`;
+
+function load(key, fallback) {
+  try {
+    const value = localStorage.getItem(key);
+    return value === null ? fallback : value;
+  } catch {
+    return fallback;
+  }
+}
+function save(key, value) {
+  try {
+    localStorage.setItem(key, value);
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function mostrar(id) {
+  ['home', 'universe', 'letter'].forEach(section => {
+    $(section).hidden = section !== id;
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function entrar() {
+  mostrar('universe');
+}
+function volver() {
+  mostrar('universe');
+}
+function abrirCarta() {
+  mostrar('letter');
+  $('editorArea').hidden = true;
+  $('letterActions').hidden = false;
+  renderCarta();
+}
+function editarCarta() {
+  $('editorArea').hidden = false;
+  $('letterActions').hidden = true;
+  $('letterInput').value = load('nihadCarta', defaultLetter);
+  $('signatureInput').value = load(
+    'nihadFirma', 'Con todo mi amor, 💖'
+  );
+  renderCarta();
+}
+function renderCarta() {
+  $('letterPreview').textContent = load('nihadCarta', defaultLetter);
+  $('signaturePreview').textContent = load(
+    'nihadFirma', 'Con todo mi amor, 💖'
+  );
+}
+function guardarCarta() {
+  const ok1 = save('nihadCarta', $('letterInput').value);
+  const ok2 = save('nihadFirma', $('signatureInput').value);
+  $('status').textContent = ok1 && ok2
+    ? 'Tu carta está guardada en este navegador. 💖'
+    : 'No se pudo guardar. Descarga una copia para conservarla.';
+  renderCarta();
+}
+function vistaPrevia() {
+  renderCarta();
+  $('status').textContent = 'Así se verá tu carta. 💖';
+}
+
+function descargarCarta() {
+  const carta = $('letterPreview').textContent;
+  const firma = $('signaturePreview').textContent;
+
+  const contenido =
+    'Mi querida Nihad,\n\n' + carta + '\n\n' + firma;
+
+  const blob = new Blob(
+    ['\uFEFF', contenido],
+    { type: 'text/plain;charset=utf-8' }
+  );
+
+  const url = URL.createObjectURL(blob);
+  const a = document.createElement('a');
+
+  a.href = url;
+  a.download = 'carta-para-nihad.txt';
+
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+
+  setTimeout(() => URL.revokeObjectURL(url), 1000);
+}
+
+document.querySelectorAll('.editable').forEach(el => {
+  const key = 'nihadTexto_' + el.dataset.id;
+  el.textContent = load(key, el.textContent);
+  el.title = 'Doble clic para editar este texto';
+  el.addEventListener('dblclick', () => {
+    if (el.isContentEditable) return;
+    el.contentEditable = 'true';
+    el.focus();
+  });
+  el.addEventListener('blur', () => {
+    if (el.isContentEditable) {
+      el.contentEditable = 'false';
+      save(key, el.textContent);
+    }
+  });
+});
+
+renderCarta();
+</script>
+</body>
+</html>
